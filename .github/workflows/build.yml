@@ -4,14 +4,14 @@ on:
     branches:
       - main
   # Uncomment the section below to enable scheduled builds
-  # schedule:
-  #   # Run this script every 1 hr
-  #   #  */m hr day month day_of_week
-  #   - cron:  '0 */1 * * *'
+  schedule:
+    # Run this script every day at 6am.
+    #  */m hr day month day_of_week
+    - cron:  '0 6 * * *'
   workflow_dispatch:
     inputs:
       tags:
-        description: 'tag'  
+        description: 'tag'
 jobs:
   build-and-deploy:
     runs-on: ubuntu-22.04
