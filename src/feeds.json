@@ -5,12 +5,16 @@
   "blogs": [
     "https://xeiaso.net/blog.rss",
     "https://drewdevault.com/blog/index.xml",
-    "https://danluu.com/atom.xml",
-    "https://kevinfiol.com/atom.xml",
-    "https://terrysfreegameoftheweek.com/feed/",
-    "https://fasterthanli.me/index.xml"
+    "https://danluu.com/atom.xml"
   ],
-  "reddit": [
-    "https://www.reddit.com/r/Games.rss"
+  "politics": [
+    "https://www.dr.dk/nyheder/service/feeds/politik",
+  ],
+  "local": [
+    "https://www.dr.dk/nyheder/service/feeds/regionale/kbh"
+  ],
+  "youtube": [
+    "https://www.youtube.com/feeds/videos.xml?channel_id=UCNvsIonJdJ5E4EXMa65VYpA",
+    "https://www.youtube.com/feeds/videos.xml?channel_id=UC2PA-AKmVpU6NKCGtZq_rKQ"
   ]
 }
