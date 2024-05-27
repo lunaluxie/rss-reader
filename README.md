@@ -15,7 +15,7 @@ Some of the changes I have made
 
 ## How to build
 
-Node `>=18.x` required.
+Node `>=22.x` required.
 
 ```shell
 npm install
