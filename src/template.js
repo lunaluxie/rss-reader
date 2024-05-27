@@ -13,7 +13,7 @@ const article = (item) => `
     </header>
 
     <small>
-      ${item.feedUrl ? `<span class="item__feed-url monospace">${item.feedUrl}</span>` : ''}
+      ${item.feedUrl ? `<span class="item__feed-url monospace">${item.feedUrl}</span>` : (new URL(item.link)).hostname}
       <ul class="article-links">
         <li class="monospace">${item.timestamp || ''}</li>
         ${item.comments ? `
@@ -66,7 +66,7 @@ export const template = ({ allItems, groups, errors, now }) => (`
         }
 
         <p>
-          Last updated ${now}. Powered by <a href="https://github.com/kevinfiol/rss-reader">Bubo Reader</a>, a project by <a href="https://george.mand.is">George Mandis</a> and <a href="https://kevinfiol.com">Kevin Fiol</a>.
+          Last updated ${now}. Powered by <a href="https://github.com/lunaluxie/rss-reader">Bubo Reader</a>.
         </p>
       </footer>
     </div>
@@ -84,7 +84,7 @@ export const template = ({ allItems, groups, errors, now }) => (`
           ${forEach(feeds, feed => `
             <details>
               <summary>
-                <span class="feed-title">${feed.title}</span> 
+                <span class="feed-title">${feed.title}</span>
                 <span class="feed-url">
                   <small>
                     (${feed.feed})

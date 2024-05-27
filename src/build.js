@@ -120,7 +120,9 @@ async function build({ config, feeds, cache, writeCache = false }) {
         });
 
         // add to allItems
-        allItems = [...allItems, ...contents.items];
+        if (groupName!= 'feeds'){
+          allItems = [...allItems, ...contents.items];
+        }
       } catch (e) {
         console.error(e);
         errors.push(url)

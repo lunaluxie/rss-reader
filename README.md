@@ -1,24 +1,17 @@
 # 🦉 Bubo Reader (Fork)
 
-![screenshot](./demo.png)
+[![screenshot](./demo.png)](https://reader.lunalux.io)
 
-[Demo Site](https://kevinfiol.com/rss-reader/)
+This is a **personal** fork of [Kevinfiol's](https://github.com/kevinfiol/rss-reader) fork of the excellent [Bubo Reader](https://github.com/georgemandis/bubo-rss) by George Mandis. 
 
-This is a personal fork of the excellent [Bubo Reader](https://github.com/georgemandis/bubo-rss) by George Mandis. I've made several opinionated changes to the setup, including replacing dependencies with more compact alternatives. Please see below for deployment instructions.
+The code, and the [deployment](https://reader.lunalux.io) are both available, but this is not intended to be useful to you. Sorry. 
 
-Original blogpost: [Introducing Bubo RSS: An Absurdly Minimalist RSS Feed Reader](https://george.mand.is/2019/11/introducing-bubo-rss-an-absurdly-minimalist-rss-feed-reader/)
+I intend to adapt the repository to fit my needs. If you want to host your own, you're probably better off forking one of the original repositories.
 
-Blogpost about my fork: [A minimal RSS Feed Reader](https://kevinfiol.com/blog/a-minimal-rss-feed-reader/)
-
-Some changes I made:
-
-* Replace `nunjucks` with template strings (less dependencies for shorter build times)
-* Replace `node-fetch` with Node's native `fetch`
-* Many styling changes, including using the `:target` CSS selector to switch between groups (inspired by https://john-doe.neocities.org/)
-* The build script now sorts the feeds in each group by which one has the latest updates (this greatly improves the experience, imo)
-* An "All Articles" view
-* Privacy-redirect support via config file
-* Dark mode via `@media (prefers-color-scheme: dark)`
+Some of the changes I have made
+- `All articles` exclude articles from feeds. 
+- Import my safari bookmarks as a feeds. 
+- Add hostname to more articles. 
 
 ## How to build
 
