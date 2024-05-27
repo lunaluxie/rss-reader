@@ -2,3 +2,5 @@ node_modules/*
 output/index.html
 cache.json
 data.json
+feeds.csv
+.DS_Store

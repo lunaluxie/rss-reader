@@ -1,20 +1,48 @@
 {
-  "feeds": [
-    "https://hnrss.org/frontpage?points=10&comments=5&count=35"
-  ],
-  "blogs": [
-    "https://xeiaso.net/blog.rss",
-    "https://drewdevault.com/blog/index.xml",
-    "https://danluu.com/atom.xml"
-  ],
-  "politics": [
-    "https://www.dr.dk/nyheder/service/feeds/politik",
-  ],
-  "local": [
-    "https://www.dr.dk/nyheder/service/feeds/regionale/kbh"
-  ],
-  "youtube": [
-    "https://www.youtube.com/feeds/videos.xml?channel_id=UCNvsIonJdJ5E4EXMa65VYpA",
-    "https://www.youtube.com/feeds/videos.xml?channel_id=UC2PA-AKmVpU6NKCGtZq_rKQ"
-  ]
+    "feeds": [
+        "https://hnrss.org/frontpage?points=10&comments=5&count=35"
+    ],
+    "blogs": [
+        "https://xeiaso.net/blog.rss",
+        "https://blog.demofox.org/feed/",
+        "https://worrydream.com/feed.xml",
+        "https://dansblog.netlify.app/index.xml",
+        "https://feedpress.me/coryd",
+        "https://www.karl.berlin/atom.xml",
+        "https://catlikecoding.com/godot/feed.atom",
+        "https://cassie.codes/feed.xml",
+        "https://suor.github.io/atom.xml",
+        "https://arunmani.in/index.xml",
+        "https://blog.codinghorror.com/rss/",
+        "https://danluu.com/atom.xml",
+        "https://waitbutwhy.com/feed",
+        "https://psychotherapyservicesforthegifted.com/feed/",
+        "https://ashfurrow.com//feed.xml",
+        "https://blog.gypsyengineer.com/feed.xml",
+        "https://www.ntnbr.com/rss/",
+        "https://tinyprojects.dev/feed.xml",
+        "https://joshcollinsworth.com/rss",
+        "https://www.joshwcomeau.com/rss.xml",
+        "https://taoofmac.com/atom.xml",
+        "https://gwern.substack.com/feed",
+        "https://www.swyx.io/rss.xml",
+        "https://bioharmony.substack.com/feed",
+        "https://drewdevault.com/blog/index.xml",
+        "https://www.marginalia.nu/index.xml",
+        "https://blog.paperspace.com/rss/",
+        "https://numericcitizen.me/rss/",
+        "https://blog.acolyer.org/feed/",
+        "https://www.elysian.press/feed",
+        "https://worldhistory.substack.com/feed"
+    ],
+    "politics": [
+        "https://www.dr.dk/nyheder/service/feeds/politik"
+    ],
+    "local": [
+        "https://www.dr.dk/nyheder/service/feeds/regionale/kbh"
+    ],
+    "youtube": [
+        "https://www.youtube.com/feeds/videos.xml?channel_id=UCNvsIonJdJ5E4EXMa65VYpA",
+        "https://www.youtube.com/feeds/videos.xml?channel_id=UC2PA-AKmVpU6NKCGtZq_rKQ"
+    ]
 }
