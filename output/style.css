@@ -289,7 +289,7 @@ section:target ~ .default-text {
 
 .default-text > p {
   margin-top: 0;
-  opacity: 0.25;
+  opacity: 0.5;
   transition: all;
   transition-timing-function: ease-in-out;
   transition-duration: 50ms;

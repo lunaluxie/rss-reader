@@ -122,7 +122,7 @@ export const template = ({ recentItems, allItems, groups, now, errors, config })
 
         <section class="default-text">
           <h2>new articles</h2>
-          <p>Showing articles from the last ${config.numberOfDaysInNewArticles} ${config.numberOfDaysInNewArticles -1 ? "days" : "day"}.</p>
+          <p>showing articles from the last ${config.numberOfDaysInNewArticles} ${config.numberOfDaysInNewArticles -1 ? "days" : "day"}.</p>
           ${forEach(recentItems, item => article(item, config.dateFormatLocale))}
         </section>
     </main>
