@@ -1,5 +1,6 @@
 {
-  "timezone_offset": -4.0,
+  "timezone_offset": -2.0,
+  "dateFormatLocale": "da-DK",
   "redirects": {
     "medium": "scribe.rip"
   }

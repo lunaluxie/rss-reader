@@ -150,7 +150,7 @@ async function build({ config, feeds, cache, writeCache = false }) {
   allItems.sort((a, b) => byDateSort(a, b));
 
   const now = getNowDate(config.timezone_offset).toString();
-  const html = template({ allItems, groups, now, errors });
+  const html = template({ allItems, groups, now, errors, config });
 
   writeFileSync(resolve(OUTFILE_PATH), html, { encoding: 'utf8' });
   console.log(`Reader built successfully at: ${OUTFILE_PATH}`);

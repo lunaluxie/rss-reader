@@ -4,7 +4,7 @@ const forEach = (arr, fn) => {
   return str;
 };
 
-const article = (item) => `
+const article = (item, dateFormatLocale) => `
   <article class="item">
     <header class="item__header">
       <a href="${item.link}" target='_blank' rel='noopener norefferer nofollow'>
@@ -15,7 +15,7 @@ const article = (item) => `
     <small>
       ${item.feedUrl ? `<span class="item__feed-url monospace">${item.feedUrl}</span>` : (new URL(item.link)).hostname}
       <ul class="article-links">
-        <li class="monospace">${item.timestamp || ''}</li>
+        <li class="monospace">${new Intl.DateTimeFormat(dateFormatLocale).format(new Date(item.timestamp)) || ''}</li>
         ${item.comments ? `
           <li><a href="${item.comments}" target='_blank' rel='noopener norefferer nofollow'>comments</a></li>
         ` : ''
@@ -27,7 +27,7 @@ const article = (item) => `
   </article>
 `;
 
-export const template = ({ allItems, groups, errors, now }) => (`
+export const template = ({ allItems, groups, now, errors, config }) => (`
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -74,7 +74,7 @@ export const template = ({ allItems, groups, errors, now }) => (`
     <main>
       <section id="all-articles">
         <h2>all articles</h2>
-        ${forEach(allItems, item => article(item))}
+        ${forEach(allItems, item => article(item, config.dateFormatLocale))}
       </section>
 
       ${forEach(groups, ([groupName, feeds]) => `
@@ -91,19 +91,19 @@ export const template = ({ allItems, groups, errors, now }) => (`
                   </small>
                 </span>
                 <div class="feed-timestamp">
-                  <small>Latest: ${feed.items[0] && feed.items[0].timestamp || ''}</small>
+                  <small>Latest: ${feed.items[0] && new Intl.DateTimeFormat(config.dateFormatLocale).format(new Date(feed.items[0].timestamp))   || ''}</small>
                 </div>
               </summary>
-              ${forEach(feed.items, item => article(item))}
+              ${forEach(feed.items, item => article(item, config.dateFormatLocale))}
             </details>
           `)}
         </section>
       `)}
 
-        <div class="default-text">
-          <p>🦉📚 welcome to bubo reader</p>
-          <p>select a feed group to get started</p>
-        </div>
+        <section class="default-text">
+          <h2>Home</h2>
+          ${forEach(allItems, item => article(item, config.dateFormatLocale))}
+        </section>
     </main>
   </div>
 </body>
