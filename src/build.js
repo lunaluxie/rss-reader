@@ -156,7 +156,7 @@ async function build({ config, feeds, cache, writeCache = false }) {
   // sort the feeds by comparing the isoDate of the first items of each feed
   groups.forEach(([_groupName, groupContent]) => {
     groupContent['contents'].sort((a, b) => byDateSort(a.items[0], b.items[0]));
-    groupContent['recentArticles'].sort((a, b) => byDateSort(a[0], b[0]));
+    groupContent['recentArticles'].sort((a, b) => byDateSort(a, b));
   });
 
   // sort `all articles` view
