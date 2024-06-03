@@ -32,7 +32,7 @@ const article = (item, dateFormatLocale) => `
   </article>
 `;
 
-export const template = ({ allItems, groups, now, errors, config }) => (`
+export const template = ({ recentItems, allItems, groups, now, errors, config }) => (`
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -118,8 +118,9 @@ export const template = ({ allItems, groups, now, errors, config }) => (`
       `)}
 
         <section class="default-text">
-          <h2>Home</h2>
-          ${forEach(allItems, item => article(item, config.dateFormatLocale))}
+          <h2>home</h2>
+          <p>Showing articles from the last ${config.numberOfDaysInNewArticles} ${config.numberOfDaysInNewArticles -1 ? "days" : "day"}.</p>
+          ${forEach(recentItems, item => article(item, config.dateFormatLocale))}
         </section>
     </main>
   </div>

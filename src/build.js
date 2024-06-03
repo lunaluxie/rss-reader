@@ -158,8 +158,10 @@ async function build({ config, feeds, cache, writeCache = false }) {
   // sort `all articles` view
   allItems.sort((a, b) => byDateSort(a, b));
 
+  let recentItems = allItems.filter(item => (new Date(item.isoDate)) >= (new Date()).setDate((new Date()).getDate() - config.numberOfDaysInNewArticles))
+
   const now = getNowDate(config.timezone_offset).toString();
-  const html = template({ allItems, groups, now, errors, config });
+  const html = template({ recentItems, allItems, groups, now, errors, config });
 
   writeFileSync(resolve(OUTFILE_PATH), html, { encoding: 'utf8' });
   console.log(`Reader built successfully at: ${OUTFILE_PATH}`);

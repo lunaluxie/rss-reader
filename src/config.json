@@ -2,6 +2,7 @@
   "timezone_offset": -2.0,
   "dateFormatLocale": "da-DK",
   "numberOfSuggestedPostsInGroup": 10,
+  "numberOfDaysInNewArticles": 2,
   "redirects": {
     "medium": "scribe.rip"
   }

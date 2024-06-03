@@ -14,13 +14,16 @@ Some of the changes I have made
 - Add hostname to more articles. 
 
 todo:
-- `all articles` in group
-- subgroups? 
-- today view: show new articles today. (it should pull articles from today and yesterday due to when it's being run.)
-    - I am always 1 day behind the news. 
-- filters.
-    - Filter out articles with certain words during build
-    - Filter feeds in group. 
+- [ ] Add RSS feeds. 
+- [x] `all articles` in group
+- [ ] Fix mobile navigation doesn't close the menu. 
+- [ ] Fix issue with jumping to top when hovering link.
+- [ ] Home feed should be full width on mobile. 
+- [ ] subgroups? 
+- [x] today view: show new articles today. (it should pull articles from today and yesterday due to when it's being run.)
+- [ ] filters.
+    - [ ] Filter out articles with certain words during build
+    - [ ] Filter feeds in group. 
 
 ## How to build
 
