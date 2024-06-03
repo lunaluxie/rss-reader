@@ -67,11 +67,10 @@ async function build({ config, feeds, cache, writeCache = false }) {
         // e.g., `application/xml; charset=utf-8` -> `application/xml`
         const contentType = response.headers.get('content-type').split(';')[0];
 
-        const body = await response.text();
         if (!CONTENT_TYPES.includes(contentType))
-          console.log(body);
           throw Error(`Feed at ${url} has invalid content-type. Got: ${contentType}, but expected one of ${CONTENT_TYPES}`)
 
+        const body = await response.text();
         const contents = typeof body === 'string'
           ? await parser.parseString(body)
           : body;
