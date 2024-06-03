@@ -18,15 +18,16 @@ const article = (item, dateFormatLocale) => `
     </header>
 
     <small>
-      ${item.feedUrl ? `<a href="#${item.groupName}" class="item__feed-url no-a-style monospace">${new URL(item.feedUrl).hostname}</a>` : `<a href="#${item.groupName}" class="item__feed-url monospace">${(new URL(item.link)).hostname}</a>`}
       <ul class="article-links">
-        <li class="monospace">${new Intl.DateTimeFormat(dateFormatLocale).format(new Date(item.timestamp)) || ''}</li>
-        ${item.comments ? `
-          <li><a href="${item.comments}" target='_blank' rel='noopener norefferer nofollow'>comments</a></li>
-        ` : ''
-        }
-        <li><a href="https://txtify.it/${item.link}" target='_blank' rel='noopener norefferer nofollow'>txtify</a></li>
-        <li><a href="https://archive.md/${item.link}" target='_blank' rel='noopener norefferer nofollow'>archive.md</a></li>
+      <li class="monospace"><span class="">${new Intl.DateTimeFormat(dateFormatLocale).format(new Date(item.timestamp)) || ''}</span></li>
+      <li><a href="#${item.groupName}" class="no-a-style" rel='noopener norefferer nofollow'>#${item.groupName}</a></li>
+      ${item.comments ? `
+      <li><a href="${item.comments}" target='_blank' rel='noopener norefferer nofollow'>comments</a></li>
+      ` : ''
+      }
+      <li><a href="https://txtify.it/${item.link}" target='_blank' rel='noopener norefferer nofollow'>txtify</a></li>
+      <li><a href="https://archive.md/${item.link}" target='_blank' rel='noopener norefferer nofollow'>archive.md</a></li>
+      ${item.feedUrl ? `<li><span class="item__feed-url no-a-style monospace">${new URL(item.feedUrl).hostname}</span></li>` : `<li><span href="#${item.groupName}" class="item__feed-url monospace">${(new URL(item.link)).hostname}</span></li>`}
       </ul>
     </small>
   </article>

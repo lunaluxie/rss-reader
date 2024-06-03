@@ -114,13 +114,12 @@ h1, h2, h3 {
   font-family: monospace;
 }
 a.no-a-style {
-  text-decoration: none;
+  text-decoration: underline;
   color: var(--color);
 }
 
 a.no-a-style:hover {
   opacity: .75;
-  text-decoration: underline;
 }
 
 a:not(.no-a-style):link {
@@ -199,10 +198,11 @@ summary:hover div {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  max-width: 200px;
 }
 
 header {
-  padding-top: 1rem;
+  padding-top: 0.5rem;
 }
 
 main {
@@ -210,13 +210,17 @@ main {
   height: 100vh;
   overflow-y: auto;
   padding-right: var(--main-padding-right);
+  max-width: 900px;
 }
 
 article.item {
-  max-width: 85%;
+  max-width: 100%;
   padding: 0.15rem 0.75rem;
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
+  padding-left: 1.5rem;
+  /* margin-left: 1.5rem;
+  margin-right: 1.5rem; */
+  margin-left: -0.75rem;
+  margin-right: 0;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   background-color: var(--faded-bg);
@@ -230,18 +234,20 @@ article.item header.item__header {
   font-size: var(--title-font-size);
 }
 
-.item__feed-url {
-  opacity: 0.25;
-}
-
 ul.article-links {
+  margin: 0.3rem 0;
   list-style: none;
   padding-left: 0;
+  opacity: 0.5;
 }
 
 ul.article-links > li {
   display:  inline-block;
   margin-right: .5rem;
+}
+
+ul.article-links > li:hover {
+  opacity: 1;
 }
 
 footer {
@@ -295,12 +301,6 @@ section:target ~ .default-text {
 .default-text>p:hover {
   margin-top: 0;
   opacity: 1;
-}
-
-section > article.item {
-  margin-left: 0;
-  margin-right: 0;
-  max-width: 100%;
 }
 
 section > hr {
