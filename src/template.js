@@ -1,5 +1,10 @@
-const forEach = (arr, fn) => {
+const forEach = (arr, fn, limit) => {
   let str = '';
+
+  if (limit) {
+    arr = arr.slice(0, limit);
+  }
+
   arr.forEach(i => str += fn(i) || '');
   return str;
 };
@@ -77,11 +82,23 @@ export const template = ({ allItems, groups, now, errors, config }) => (`
         ${forEach(allItems, item => article(item, config.dateFormatLocale))}
       </section>
 
-      ${forEach(groups, ([groupName, feeds]) => `
+      ${forEach(groups, ([groupName, groupContent]) => `
         <section id="${groupName}">
           <h2>${groupName}</h2>
 
-          ${forEach(feeds, feed => `
+          <h3> recent articles </h3>
+          ${
+            forEach(
+              groupContent['recentArticles'],
+              (item => article(item, config.dateFormatLocale)),
+              config.numberOfSuggestedPostsInGroup,
+            )
+          }
+
+          <hr/>
+
+          <h3> feeds </h3>
+          ${forEach(groupContent['contents'], feed => `
             <details>
               <summary>
                 <span class="feed-title">${feed.title}</span>

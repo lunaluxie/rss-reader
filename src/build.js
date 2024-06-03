@@ -38,7 +38,10 @@ async function build({ config, feeds, cache, writeCache = false }) {
   const groupContents = {};
 
   for (const groupName in feeds) {
-    groupContents[groupName] = [];
+    groupContents[groupName] = {
+      contents: [],
+      recentArticles: []
+    };
 
     const results = await Promise.allSettled(
       Object.values(feeds[groupName]).map(url =>
@@ -78,7 +81,8 @@ async function build({ config, feeds, cache, writeCache = false }) {
 
         contents.feed = url;
         contents.title = contents.title || contents.link;
-        groupContents[groupName].push(contents);
+        groupContents[groupName]['contents'].push(contents);
+        groupContents[groupName]['recentArticles'] = [...groupContents[groupName]['recentArticles'], ...contents.items]
 
         // item sort & normalization
         contents.items.sort(byDateSort);
@@ -117,6 +121,10 @@ async function build({ config, feeds, cache, writeCache = false }) {
 
           // 5. escape html in titles
           item.title = escapeHtml(item.title);
+
+          //6 add feedUrl to item
+          // to be shown as recent items in the group
+          item.feedUrl = contents.feed;
         });
 
         // add to allItems
@@ -142,8 +150,9 @@ async function build({ config, feeds, cache, writeCache = false }) {
 
   // for each group, sort the feeds
   // sort the feeds by comparing the isoDate of the first items of each feed
-  groups.forEach(([_groupName, feeds]) => {
-    feeds.sort((a, b) => byDateSort(a.items[0], b.items[0]));
+  groups.forEach(([_groupName, groupContent]) => {
+    groupContent['contents'].sort((a, b) => byDateSort(a.items[0], b.items[0]));
+    groupContent['recentArticles'].sort((a, b) => byDateSort(a[0], b[0]));
   });
 
   // sort `all articles` view

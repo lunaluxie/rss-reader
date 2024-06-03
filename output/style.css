@@ -271,6 +271,12 @@ section:target ~ .default-text {
   display: block;
 }
 
-.default-text > article.item {
+section > article.item {
   margin-left: 0;
+  margin-right: 0;
+  max-width: 100%;
+}
+
+section > hr {
+  margin: 1rem 0;
 }
