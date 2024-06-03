@@ -268,9 +268,9 @@ section:target ~ .default-text {
 
 
 .default-text {
-  text-align: center;
-  position: relative;
-  top: 5%;
-  font-family: monospace;
-  font-size: 2em;
+  display: block;
+}
+
+.default-text > article.item {
+  margin-left: 0;
 }
