@@ -13,6 +13,15 @@ Some of the changes I have made
 - Import my safari bookmarks as a feeds. 
 - Add hostname to more articles. 
 
+todo:
+- `all articles` in group
+- subgroups? 
+- today view: show new articles today. (it should pull articles from today and yesterday due to when it's being run.)
+    - I am always 1 day behind the news. 
+- filters.
+    - Filter out articles with certain words during build
+    - Filter feeds in group. 
+
 ## How to build
 
 Node `>=22.x` required.
