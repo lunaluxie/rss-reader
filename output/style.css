@@ -1,10 +1,11 @@
 :root {
-  --font-size: 14px;
 
   --color: #111;
   --bg-color: #fffff8;
   --faded-bg: #f9f9f2;
 
+
+  --font-size: 14px;
   --title-font-size: 16px;
   --title-font-weight: 600;
 
@@ -226,10 +227,6 @@ article.item {
   background-color: var(--faded-bg);
 }
 
-#all-articles > article.item {
-  margin-left: 0;
-}
-
 article.item header.item__header {
   font-size: var(--title-font-size);
 }
@@ -305,4 +302,12 @@ section:target ~ .default-text {
 
 section > hr {
   margin: 1rem 0;
+}
+
+.item__header>a{
+  text-decoration: none;
+}
+
+.item__header>a:hover {
+  text-decoration: underline;
 }

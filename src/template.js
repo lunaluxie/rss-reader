@@ -52,7 +52,9 @@ export const template = ({ recentItems, allItems, groups, now, errors, config })
       <header>
         <h1 class="inline" style="user-select: none;">🦉</h1>
         <ul class="group-selector">
-          <li><a href="#all-articles">all articles</a></li>
+          <li><a href="#all-articles">all</a></li>
+          <li><a href="#">recent</a></li>
+          <br/>
           ${forEach(groups, group => `
             <li><a href="#${group[0]}">${group[0]}</a></li>
           `)}
@@ -119,7 +121,7 @@ export const template = ({ recentItems, allItems, groups, now, errors, config })
       `)}
 
         <section class="default-text">
-          <h2>home</h2>
+          <h2>new articles</h2>
           <p>Showing articles from the last ${config.numberOfDaysInNewArticles} ${config.numberOfDaysInNewArticles -1 ? "days" : "day"}.</p>
           ${forEach(recentItems, item => article(item, config.dateFormatLocale))}
         </section>
