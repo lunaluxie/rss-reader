@@ -125,6 +125,10 @@ async function build({ config, feeds, cache, writeCache = false }) {
           //6 add feedUrl to item
           // to be shown as recent items in the group
           item.feedUrl = contents.feed;
+
+          // 7 add groupName to item
+          item.groupName = groupName;
+
         });
 
         // add to allItems

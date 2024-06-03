@@ -18,7 +18,7 @@ const article = (item, dateFormatLocale) => `
     </header>
 
     <small>
-      ${item.feedUrl ? `<span class="item__feed-url monospace">${item.feedUrl}</span>` : (new URL(item.link)).hostname}
+      ${item.feedUrl ? `<a href="#${item.groupName}" class="item__feed-url no-a-style monospace">${new URL(item.feedUrl).hostname}</a>` : `<a href="#${item.groupName}" class="item__feed-url monospace">${(new URL(item.link)).hostname}</a>`}
       <ul class="article-links">
         <li class="monospace">${new Intl.DateTimeFormat(dateFormatLocale).format(new Date(item.timestamp)) || ''}</li>
         ${item.comments ? `
