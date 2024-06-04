@@ -4,3 +4,4 @@ cache.json
 data.json
 feeds.csv
 .DS_Store
+__pycache__/

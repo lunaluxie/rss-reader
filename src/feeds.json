@@ -1,44 +1,68 @@
 {
     "feeds": [
-        "https://hnrss.org/frontpage?points=10&comments=5&count=35"
+        "https://hnrss.org/frontpage?points=10&comments=5&count=35",
+        "https://lobste.rs/rss"
     ],
     "blogs": [
-        "https://xeiaso.net/blog.rss",
-        "https://blog.demofox.org/feed/",
-        "https://worrydream.com/feed.xml",
-        "https://dansblog.netlify.app/index.xml",
         "https://feedpress.me/coryd",
-        "https://www.karl.berlin/atom.xml",
-        "https://catlikecoding.com/godot/feed.atom",
-        "https://cassie.codes/feed.xml",
-        "https://suor.github.io/atom.xml",
-        "https://arunmani.in/index.xml",
-        "https://blog.codinghorror.com/rss/",
-        "https://danluu.com/atom.xml",
-        "https://waitbutwhy.com/feed",
-        "https://psychotherapyservicesforthegifted.com/feed/",
+        "https://www.gurwinder.blog/feed",
+        "https://blog.paperspace.com/rss/",
         "https://ashfurrow.com//feed.xml",
-        "https://blog.gypsyengineer.com/feed.xml",
+        "https://www.elysian.press/feed",
+        "https://hiandrewquinn.github.io/til-site/index.xml",
+        "https://www.marginalia.nu/index.xml",
+        "https://catlikecoding.com/godot/feed.atom",
+        "https://waitbutwhy.com/feed",
         "https://www.ntnbr.com/rss/",
         "https://tinyprojects.dev/feed.xml",
-        "https://joshcollinsworth.com/rss",
-        "https://www.joshwcomeau.com/rss.xml",
+        "https://danluu.com/atom.xml",
+        "https://arunmani.in/index.xml",
         "https://taoofmac.com/atom.xml",
-        "https://gwern.substack.com/feed",
-        "https://www.swyx.io/rss.xml",
-        "https://bioharmony.substack.com/feed",
-        "https://drewdevault.com/blog/index.xml",
-        "https://www.marginalia.nu/index.xml",
-        "https://blog.paperspace.com/rss/",
+        "https://dansblog.netlify.app/index.xml",
+        "https://xeiaso.net/blog.rss",
+        "https://blog.demofox.org/feed/",
         "https://blog.acolyer.org/feed/",
-        "https://www.elysian.press/feed",
-        "https://worldhistory.substack.com/feed"
+        "https://worrydream.com/feed.xml",
+        "https://www.fabricatedknowledge.com/feed",
+        "https://www.joshwcomeau.com/rss.xml",
+        "https://blog.gypsyengineer.com/feed.xml",
+        "https://zeux.io/feed/",
+        "https://psychotherapyservicesforthegifted.com/feed/",
+        "https://worldhistory.substack.com/feed",
+        "https://cassie.codes/feed.xml",
+        "https://drewdevault.com/blog/index.xml",
+        "https://www.righto.com/feeds/posts/default",
+        "https://www.karl.berlin/atom.xml",
+        "https://blog.codinghorror.com/rss/",
+        "https://flohgro.com/feed/",
+        "https://suor.github.io/atom.xml",
+        "https://joshcollinsworth.com/rss",
+        "https://gwern.substack.com/feed",
+        "https://bioharmony.substack.com/feed",
+        "https://www.swyx.io/rss.xml"
+    ],
+    "science":[
+        "https://astrobites.org/rss",
+        "https://www.scientificamerican.com/platform/syndication/rss/",
+        "https://www.quantamagazine.org/feed",
+        "https://phys.org/rss-feed/breaking/"
+    ],
+    "news": [
+        "https://www.theguardian.com/europe/rss",
+        "https://www.theguardian.com/world/rss",
+        "https://www.vox.com/rss/index.xml",
+        "http://propublica.org/feeds"
     ],
     "politics": [
-        "https://www.dr.dk/nyheder/service/feeds/politik"
+        "https://www.dr.dk/nyheder/service/feeds/politik",
+        "https://www.politico.eu/feed/",
+        "http://altinget.dk/rss"
     ],
     "local": [
         "https://www.dr.dk/nyheder/service/feeds/regionale/kbh"
+    ],
+    "german": [
+        "https://rss.dw.com/atom/rss-de-top"
     ],
     "youtube": [
         "https://www.youtube.com/feeds/videos.xml?channel_id=UCNvsIonJdJ5E4EXMa65VYpA",
