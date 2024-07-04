@@ -68,11 +68,12 @@ def main(args):
         feeds_found = [feed for feed in feeds if feed]
         print(f"Found {len(feeds_found)}/{len(blog_urls)} feeds.")
 
-    if args.verbose: print(f"Saving cache to {args.cache}")
-    pd.DataFrame({
-        "Blog URL": blog_urls,
-        "Feed URL": feeds
-    }).to_csv(args.cache, index=False, mode='a' if os.path.exists(args.cache) else 'w', header=args.cache)
+    if args.cache:
+        if args.verbose: print(f"Saving cache to {args.cache}")
+        pd.DataFrame({
+            "Blog URL": blog_urls,
+            "Feed URL": feeds
+        }).to_csv(args.cache, index=False, mode='a' if os.path.exists(args.cache) else 'w', header=False if os.path.exists(args.cache) else True)
 
     if args.verbose: print(f"Updating {args.feeds}")
 
