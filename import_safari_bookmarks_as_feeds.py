@@ -96,7 +96,7 @@ def main(args):
 if __name__ == '__main__':
 
     # run with
-    # python3 import_safari_bookmarks_as_feeds.py src/feeds.json -v
+    # python3 import_safari_bookmarks_as_feeds.py src/feeds.json -v -c feeds.csv
 
     parser = argparse.ArgumentParser("Get RSS feeds from Safari bookmarks.")
 
