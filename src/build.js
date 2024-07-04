@@ -168,12 +168,16 @@ async function build({ config, feeds, cache, writeCache = false }) {
     index === self.findIndex((t) => (
         t.link === item.link
     ))
-);
+  );
 
   // sort `all articles` view
   allItems.sort((a, b) => byDateSort(a, b));
 
-  let recentItems = allItems.filter(item => (item.timestamp ? false : new Date(item.timestamp)) >= (new Date()).setDate((new Date()).getDate() - config.numberOfDaysInNewArticles+1))
+  let recentItems = allItems.filter(item => (
+    item.timestamp ?
+    (new Date(item.timestamp)) >= (new Date()).setDate((new Date()).getDate() - config.numberOfDaysInNewArticles+1)
+    : false)
+  );
 
   const now = getNowDate(config.timezone_offset).toString();
   const html = template({ recentItems, allItems, groups, now, errors, config });

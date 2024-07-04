@@ -74,7 +74,9 @@
         "https://www.dr.dk/nyheder/service/feeds/politik",
         "https://www.politico.eu/feed/",
         "http://altinget.dk/rss",
-        "https://www.theguardian.com/politics/rss"
+        "https://www.theguardian.com/politics/rss",
+        "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
+
     ],
     "local": [
         "https://www.dr.dk/nyheder/service/feeds/regionale/kbh"

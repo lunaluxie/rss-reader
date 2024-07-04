@@ -300,6 +300,10 @@ section:target ~ .default-text {
   opacity: 1;
 }
 
+.default-text>p:nth-child(2) {
+  opacity: 1;
+}
+
 section > hr {
   margin: 1rem 0;
 }

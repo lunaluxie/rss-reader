@@ -74,7 +74,11 @@ export const template = ({ recentItems, allItems, groups, now, errors, config })
         }
 
         <p>
-          Last updated ${now}. Powered by <a href="https://github.com/lunaluxie/rss-reader">Bubo Reader</a>.
+          Last updated ${new Intl.DateTimeFormat(config['dateFormatLocale'], {
+            dateStyle: 'full',
+            timeStyle: 'long',
+          }).format(new Date(now)) || ''}.
+          <br>Find the code on <a href="https://github.com/lunaluxie/rss-reader">Github</a>.
         </p>
       </footer>
     </div>
@@ -82,7 +86,7 @@ export const template = ({ recentItems, allItems, groups, now, errors, config })
     <main>
       <section id="all-articles">
         <h2>all articles</h2>
-        ${forEach(allItems, item => article(item, config.dateFormatLocale))}
+        ${forEach(allItems.slice(0, config["numberOfArticlesInAllArticles"]), item => article(item, config.dateFormatLocale))}
       </section>
 
       ${forEach(groups, ([groupName, groupContent]) => `
@@ -122,6 +126,7 @@ export const template = ({ recentItems, allItems, groups, now, errors, config })
 
         <section class="default-text">
           <h2>new articles</h2>
+          <p>this is <a href='https://lunalux.io'>my</a> public rss reader. inclusion is not endorsement!</p>
           <p>showing articles from the last ${config.numberOfDaysInNewArticles} ${config.numberOfDaysInNewArticles -1 ? "days" : "day"}.</p>
           ${forEach(recentItems, item => article(item, config.dateFormatLocale))}
         </section>
