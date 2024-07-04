@@ -88,9 +88,13 @@ async function build({ config, feeds, cache, writeCache = false }) {
         contents.items.sort(byDateSort);
         contents.items.forEach((item) => {
           // 1. try to normalize date attribute naming
-          const dateAttr = item.pubDate || item.isoDate || item.date || item.published;
-          item.timestamp = new Date(dateAttr).toLocaleDateString();
-
+          const dateAttr = item.pubDate || item.isoDate || item.date || item.published || item.updated;
+          try {
+            item.timestamp = new Date(dateAttr).toLocaleDateString();
+          } catch (e) {
+            console.error(`Error parsing date for ${item.link}: ${dateAttr}`);
+            item.timestamp = '';
+          }
           // 2. correct link url if it lacks the hostname
           if (item.link && item.link.split('http').length === 1) {
             item.link =
@@ -164,12 +168,12 @@ async function build({ config, feeds, cache, writeCache = false }) {
     index === self.findIndex((t) => (
         t.link === item.link
     ))
-  );
+);
 
   // sort `all articles` view
   allItems.sort((a, b) => byDateSort(a, b));
 
-  let recentItems = allItems.filter(item => (new Date(item.isoDate)) >= (new Date()).setDate((new Date()).getDate() - config.numberOfDaysInNewArticles+1))
+  let recentItems = allItems.filter(item => (item.timestamp ? false : new Date(item.timestamp)) >= (new Date()).setDate((new Date()).getDate() - config.numberOfDaysInNewArticles+1))
 
   const now = getNowDate(config.timezone_offset).toString();
   const html = template({ recentItems, allItems, groups, now, errors, config });
@@ -183,7 +187,7 @@ async function build({ config, feeds, cache, writeCache = false }) {
  */
 function parseDate(item) {
   let date = item
-    ? (item.isoDate || item.pubDate)
+    ? (item.isoDate || item.pubDate || item.timestamp)
     : undefined;
 
   return date ? new Date(date) : undefined;
