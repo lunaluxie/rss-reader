@@ -159,6 +159,13 @@ async function build({ config, feeds, cache, writeCache = false }) {
     groupContent['recentArticles'].sort((a, b) => byDateSort(a, b));
   });
 
+  // remove duplicates from all items
+  allItems = allItems.filter((item, index, self) =>
+    index === self.findIndex((t) => (
+        t.link === item.link
+    ))
+  );
+
   // sort `all articles` view
   allItems.sort((a, b) => byDateSort(a, b));
 
