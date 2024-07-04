@@ -4,7 +4,9 @@
 
 This is a **personal** fork of [Kevinfiol's](https://github.com/kevinfiol/rss-reader) fork of the excellent [Bubo Reader](https://github.com/georgemandis/bubo-rss) by George Mandis. 
 
-The code, and the [deployment](https://reader.lunalux.io) are both available, but this is not intended to be useful to you. Sorry. 
+The code, and the [deployment](https://reader.lunalux.io) are both available. 
+
+> Being included in the feeds is not an endorsement of the content!
 
 I intend to adapt the repository to fit my needs. If you want to host your own, you're probably better off forking one of the original repositories.
 
@@ -14,7 +16,7 @@ Some of the changes I have made
 - Add hostname to more articles. 
 
 todo:
-- [ ] Add RSS feeds. 
+- [x] Add RSS feeds. 
 - [x] `all articles` in group
 - [ ] Fix mobile navigation doesn't close the menu. 
 - [ ] Fix issue with jumping to top when hovering link.
