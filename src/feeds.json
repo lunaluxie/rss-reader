@@ -95,7 +95,8 @@
         "https://www.dr.dk/nyheder/service/feeds/regionale/kbh"
     ],
     "german": [
-        "https://rss.dw.com/atom/rss-de-ger"
+        "http://rss.dw-world.de/atom/DKfeed_topthemamitvokabeln_de",
+        "https://rss.dw.com/atom/rss-de-top"
     ],
     "youtube": [
         "https://www.youtube.com/feeds/videos.xml?channel_id=UCNvsIonJdJ5E4EXMa65VYpA",
