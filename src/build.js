@@ -136,7 +136,8 @@ async function build({ config, feeds, cache, writeCache = false }) {
         });
 
         // add to allItems
-        if (groupName!= 'feeds'){
+        // exclude items from filtered groups in all and recent articles
+        if (config.filterGroups.indexOf(groupName) == -1) {
           allItems = [...allItems, ...contents.items];
         }
       } catch (e) {
@@ -160,7 +161,18 @@ async function build({ config, feeds, cache, writeCache = false }) {
   // sort the feeds by comparing the isoDate of the first items of each feed
   groups.forEach(([_groupName, groupContent]) => {
     groupContent['contents'].sort((a, b) => byDateSort(a.items[0], b.items[0]));
-    groupContent['recentArticles'].sort((a, b) => byDateSort(a, b));
+    groupContent['recentArticles'].sort((a, b) => byDateSort(a, b))
+    let filteredArticles = groupContent['recentArticles'].filter(item => (
+      item.timestamp ?
+        (new Date(item.timestamp)) >= (new Date()).setDate((new Date()).getDate() - (config.numberOfDaysInNewArticles + 1))
+        : false)
+    );
+    if (filteredArticles.length > config.minNumberOfSuggestedPostsInGroup){
+      groupContent['recentArticles'] = filteredArticles;
+    }
+    else {
+      groupContent['recentArticles'] = groupContent['recentArticles'].slice(0, config.minNumberOfSuggestedPostsInGroup);
+    }
   });
 
   // remove duplicates from all items
@@ -175,7 +187,7 @@ async function build({ config, feeds, cache, writeCache = false }) {
 
   let recentItems = allItems.filter(item => (
     item.timestamp ?
-    (new Date(item.timestamp)) >= (new Date()).setDate((new Date()).getDate() - config.numberOfDaysInNewArticles+1)
+    (new Date(item.timestamp)) >= (new Date()).setDate((new Date()).getDate() - (config.numberOfDaysInNewArticles+1))
     : false)
   );
 

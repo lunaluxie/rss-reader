@@ -98,7 +98,7 @@ export const template = ({ recentItems, allItems, groups, now, errors, config })
             forEach(
               groupContent['recentArticles'],
               (item => article(item, config.dateFormatLocale)),
-              config.numberOfSuggestedPostsInGroup,
+              config.maxNumberOfSuggestedPostsInGroup,
             )
           }
 
