@@ -82,7 +82,6 @@
         "https://taoofmac.com/atom.xml",
         "https://kevquirk.com/feed",
         "https://www.csun.io/feed.xml",
-        "https://lgbtqia.space/@m.rss",
         "https://psychotherapyservicesforthegifted.com/feed/",
         "https://arunmani.in/index.xml",
         "https://www.mayank.co/blog/rss.xml",
@@ -90,8 +89,8 @@
         "https://macwright.com/rss.xml",
         "https://feedpress.me/coryd"
     ],
-    "coorporate blogs": [
-        "https://blog.paperspace.com/rss/"
+    "social": [
+        "https://lgbtqia.space/@m.rss"
     ],
     "science": [
         "https://astrobites.org/rss",
