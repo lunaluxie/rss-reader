@@ -19,7 +19,7 @@ const article = (item, dateFormatLocale) => `
 
     <small>
       <ul class="article-links">
-      <li class="monospace"><span class="">${new Intl.DateTimeFormat(dateFormatLocale).format(new Date(item.timestamp)) || ''}</span></li>
+      <li class="monospace"><span class="">${item.timestamp ? new Intl.DateTimeFormat(dateFormatLocale).format(new Date(item.timestamp)) : ""}</span></li>
       <li><a href="#${item.groupName}" class="no-a-style" rel='noopener norefferer nofollow'>#${item.groupName}</a></li>
       ${item.comments ? `
       <li><a href="${item.comments}" target='_blank' rel='noopener norefferer nofollow'>comments</a></li>
@@ -115,7 +115,7 @@ export const template = ({ recentItems, allItems, groups, now, errors, config })
                   </small>
                 </span>
                 <div class="feed-timestamp">
-                  <small>Latest: ${feed.items[0] && new Intl.DateTimeFormat(config.dateFormatLocale).format(new Date(feed.items[0].timestamp))   || ''}</small>
+                  <small>Latest: ${feed.items[0] && (feed.items[0].timestamp ? new Intl.DateTimeFormat(config.dateFormatLocale).format(new Date(feed.items[0].timestamp)) : false) || ''}</small>
                 </div>
               </summary>
               ${forEach(feed.items, item => article(item, config.dateFormatLocale))}

@@ -12,16 +12,12 @@
         "https://www.crisluengo.net/feeds/all.atom.xml",
         "https://www.tbray.org/ongoing/ongoing.atom",
         "https://www.joshwcomeau.com/rss.xml",
-        "https://rachelbythebay.com/w/atom.xml",
         "https://eli.thegreenplace.net/feeds/all.atom.xml",
         "https://lmnt.me/feed.xml",
         "https://robert.ocallahan.org/feed.xml",
         "https://blog.acolyer.org/feed/",
-        "https://nelsonauner.com/feed.R.xml",
         "https://lilianweng.github.io/index.xml",
-        "https://catlikecoding.com/godot/feed.atom",
         "https://computer.rip/rss.xml",
-        "https://betterexplained.com/",
         "https://lea.verou.me/feed.xml",
         "https://joshcollinsworth.com/rss",
         "https://www.mistys-internet.website/blog/atom.xml",
@@ -88,9 +84,6 @@
         "https://susam.net/feed.xml",
         "https://macwright.com/rss.xml",
         "https://feedpress.me/coryd"
-    ],
-    "social": [
-        "https://lgbtqia.space/@m.rss"
     ],
     "science": [
         "https://astrobites.org/rss",

@@ -90,10 +90,10 @@ async function build({ config, feeds, cache, writeCache = false }) {
           // 1. try to normalize date attribute naming
           const dateAttr = item.pubDate || item.isoDate || item.date || item.published || item.updated;
           try {
-            item.timestamp = new Date(dateAttr).toLocaleDateString();
+            item.timestamp = new Date(dateAttr);
           } catch (e) {
             console.error(`Error parsing date for ${item.link}: ${dateAttr}`);
-            item.timestamp = '';
+            item.timestamp = false;
           }
           // 2. correct link url if it lacks the hostname
           if (item.link && item.link.split('http').length === 1) {
@@ -124,8 +124,11 @@ async function build({ config, feeds, cache, writeCache = false }) {
           }
 
           // 5. escape html in titles
-          item.title = escapeHtml(item.title);
-
+          if (item.title){
+            item.title = escapeHtml(item.title);
+          } else {
+            item.title = "No title";
+          }
           //6 add feedUrl to item
           // to be shown as recent items in the group
           item.feedUrl = contents.feed;
@@ -203,7 +206,7 @@ async function build({ config, feeds, cache, writeCache = false }) {
  */
 function parseDate(item) {
   let date = item
-    ? (item.isoDate || item.pubDate || item.timestamp)
+    ? (item.timestamp || item.isoDate || item.pubDate)
     : undefined;
 
   return date ? new Date(date) : undefined;

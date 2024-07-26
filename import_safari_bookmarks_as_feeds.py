@@ -26,7 +26,11 @@ def get_bookmark_urls(bookmark_path, folder_name):
 
 
 def find_rss_feeds_at_url(url):
-    response = requests.get(url,)
+    try:
+        response = requests.get(url,)
+    except requests.exceptions.SSLError:
+        return "None"
+
     html_content = response.text
 
     # Parse the HTML content using BeautifulSoup
