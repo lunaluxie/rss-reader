@@ -5,9 +5,9 @@ on:
       - main
   # Uncomment the section below to enable scheduled builds
   schedule:
-    # Run this script every day at 6am.
+    # Run this script every day at 6am CET.
     #  */m hr day month day_of_week
-    - cron:  '0 6 * * *'
+    - cron:  '0 4 * * *'
   workflow_dispatch:
     inputs:
       tags:
