@@ -95,6 +95,13 @@ async function build({ config, feeds, cache, writeCache = false }) {
             console.error(`Error parsing date for ${item.link}: ${dateAttr}`);
             item.timestamp = false;
           }
+
+          try {
+            item.timestampFormatted = new Intl.DateTimeFormat(config.dateFormatLocale).format(item.timestamp)
+          } catch (e) {
+            console.error(`Error formatting date for ${item.link}: ${item.timestamp}`);
+            item.timestampFormatted = "Invalid Date";
+          }
           // 2. correct link url if it lacks the hostname
           if (item.link && item.link.split('http').length === 1) {
             item.link =

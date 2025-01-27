@@ -19,7 +19,7 @@ const article = (item, dateFormatLocale) => `
 
     <small>
       <ul class="article-links">
-      <li class="monospace"><span class="">${item.timestamp ? new Intl.DateTimeFormat(dateFormatLocale).format(new Date(item.timestamp)) : ""}</span></li>
+      <li class="monospace"><span class="">${item.timestampFormatted}</span></li>
       <li><a href="#${item.groupName}" class="no-a-style" rel='noopener norefferer nofollow'>#${item.groupName}</a></li>
       ${item.comments ? `
       <li><a href="${item.comments}" target='_blank' rel='noopener norefferer nofollow'>comments</a></li>
