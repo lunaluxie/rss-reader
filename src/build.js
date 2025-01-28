@@ -102,13 +102,21 @@ async function build({ config, feeds, cache, writeCache = false }) {
             console.error(`Error formatting date for ${item.link}: ${item.timestamp}`);
             item.timestampFormatted = "Invalid Date";
           }
-          // 2. correct link url if it lacks the hostname
+
+          // 2. correct link url if it lacks the protocol
           if (item.link && item.link.split('http').length === 1) {
             item.link =
-              // if the hostname ends with a /, and the item link begins with a /
+            // if the protocol ends with a /, and the item link begins with a /
               contents.link.slice(-1) === '/' && item.link.slice(0, 1) === '/'
                 ? contents.link + item.link.slice(1)
                 : contents.link + item.link;
+          }
+
+          // 2.5 deal with relative urls :(
+          // new URL("/article", "https://test.example.org/") -> https://test.example.org/article
+          // new URL("https://example2.com/", "https://test.example.org/") -> https://example2.com/
+          if (item.link) {
+            item.link = new URL(item.link, contents.feed).href;
           }
 
           // 3. parse subreddit feed comments

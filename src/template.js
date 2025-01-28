@@ -27,7 +27,7 @@ const article = (item, dateFormatLocale) => `
       }
       <li><a href="https://txtify.it/${item.link}" target='_blank' rel='noopener norefferer nofollow'>txtify</a></li>
       <li><a href="https://archive.md/${item.link}" target='_blank' rel='noopener norefferer nofollow'>archive.md</a></li>
-      ${item.feedUrl ? `<li><span class="item__feed-url no-a-style monospace">${new URL(item.feedUrl).hostname}</span></li>` : `<li><span href="#${item.groupName}" class="item__feed-url monospace">${(new URL(item.link)).hostname}</span></li>`}
+      ${item.feedUrl ? `<li><a class="feed-link" href="#feed""><span class="item__feed-url no-a-style monospace" data-textFragment="${new URL(item.feedUrl)}">${new URL(item.feedUrl).hostname}</span></a></li>` : `<li><span href="#${item.groupName}" class="item__feed-url monospace">${(new URL(item.link)).hostname}</span></li>`}
       </ul>
     </small>
   </article>
@@ -115,7 +115,7 @@ export const template = ({ recentItems, allItems, groups, now, errors, config })
                   </small>
                 </span>
                 <div class="feed-timestamp">
-                  <small>Latest: ${feed.items[0] && (feed.items[0].timestamp ? new Intl.DateTimeFormat(config.dateFormatLocale).format(new Date(feed.items[0].timestamp)) : false) || ''}</small>
+                  <small>Latest: ${feed.items.length > 0 ? feed.items[0].timestampFormatted : "N/A"}</small>
                 </div>
               </summary>
               ${forEach(feed.items, item => article(item, config.dateFormatLocale))}
@@ -124,12 +124,49 @@ export const template = ({ recentItems, allItems, groups, now, errors, config })
         </section>
       `)}
 
-        <section class="default-text">
-          <h2>new articles</h2>
-          <p>this is <a href='https://lunalux.io'>my</a> public rss reader. inclusion is not endorsement!</p>
-          <p>showing articles from the last ${config.numberOfDaysInNewArticles} ${config.numberOfDaysInNewArticles -1 ? "days" : "day"}.</p>
-          ${forEach(recentItems, item => article(item, config.dateFormatLocale))}
-        </section>
+      <section class="default-text">
+        <h2>new articles</h2>
+        <p>showing articles from the last ${config.numberOfDaysInNewArticles} ${config.numberOfDaysInNewArticles - 1 ? "days" : "day"}.</p>
+        ${forEach(recentItems, item => article(item, config.dateFormatLocale))}
+
+        <h3> feeds </h3>
+        ${forEach(groups, ([groupName, groupContent]) => `
+          ${forEach(groupContent['contents'], feed => `
+            <details>
+              <summary>
+                <span class="feed-title">${feed.title}</span>
+                <span class="feed-url">
+                  <small>
+                    (${feed.feed})
+                  </small>
+                </span>
+                <div class="feed-timestamp">
+                  <small>Latest: ${feed.items.length > 0 ? feed.items[0].timestampFormatted : "N/A"}</small>
+                </div>
+              </summary>
+              ${forEach(feed.items, item => article(item, config.dateFormatLocale))}
+            </details>
+          `)}
+        `)}
+      </section>
+
+
+      <script>
+        const feedLinks = document.querySelectorAll('.feed-link');
+        feedLinks.forEach(link => {
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const textFragment = e.target.getAttribute('data-textFragment');
+            console.log(textFragment);
+            console.log(e.target);
+            if (textFragment) {
+              console.log(window.location.hash+":~:text="+textFragment);
+              window.location.hash = "#:~:text="+textFragment;
+              console.log(window.location.hash);
+            }
+          });
+        });
+      </script>
     </main>
   </div>
 </body>
